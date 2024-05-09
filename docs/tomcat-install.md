@@ -1,15 +1,21 @@
 ## Tomcat 설치
 
 1. tomcat9 다운로드
+```sh
    # wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz
+```
 
 2. 압축 풀기
+```sh
    # tar xvfz apache-tomcat-9.0.89.tar.gz
+```
 
 3. 설치
+```sh
    # mv apache-tomcat-9.0.89 /usr/local/poscodx
    # cd /usr/local/poscodx
    # ln -s apache-tomcat-9.0.89 tomcat
+```
 
 4. 포트 확인(/usr/local/poscodx/tomcat/conf/server.xml)
 ```xml
@@ -30,9 +36,9 @@
 ```
 
 6. 방화벽(firewalld, 8080 포트) 열기
-[/etc/firewalld/zones/public.xml](https://github.com/bitacademy-poscodx/rocky-practices/blob/main/lx/etc/firewalld/zones/public.xml) 생성
-[/usr/lib/firewalld/services/tomcat.xml](https://github.com/bitacademy-poscodx/rocky-practices/blob/main/lx/usr/lib/firewalld/services/tomcat.xml) 생성
-
+1. [/etc/firewalld/zones/public.xml](https://github.com/bitacademy-poscodx/rocky-practices/blob/main/lx/etc/firewalld/zones/public.xml) 생성
+2. [/usr/lib/firewalld/services/tomcat.xml](https://github.com/bitacademy-poscodx/rocky-practices/blob/main/lx/usr/lib/firewalld/services/tomcat.xml) 생성
+3. 방화벽 서비스 재실행
 ```sh
 # systemctl stop firewalld
 # systemctl start firewalld
